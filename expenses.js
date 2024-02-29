@@ -57,12 +57,12 @@ function getMedian(array) {
 
 /*
 	"Wyznacz medianę wydatków do pierwszej niedzieli (włącznie) każdego miesiąca"
-	medianę wydatków każdego miesiąca rozumiem jako medianę sum wydatków z danego miesiąca
+	"medianę wydatków [...] każdego miesiąca" rozumiem jako medianę sum wydatków z danego miesiąca
 */
 
 function get_median_of_first_week_expenses(expenses) {
 	let result = null;
-	let medianItems = [];
+	const medianItems = [];
 
 	for (const key in expenses) {
 		const monthExpenses = getExpensesFirstWeek(expenses[key], key);
@@ -71,7 +71,7 @@ function get_median_of_first_week_expenses(expenses) {
 		for (const item of monthExpenses)
 			sum += item;
 		
-		sum = Math.round(sum * 100) / 100;
+		sum = Math.round(sum * 100) / 100; // solve famous 0.1 + 0.2 problem
 		medianItems.push(sum);
 	}
 
